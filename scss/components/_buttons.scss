@@ -1,0 +1,49 @@
+//imports
+@use "../abstract/variables";
+@use "../abstract/mixins";
+@use "../layouts/breakpoints";
+
+//placeholders
+%button {
+	display: inline-block;
+	@include mixins.font(
+		$family: variables.$inter,
+		$size: 0.9375rem,
+		$weight: variables.$w-500
+	);
+	text-decoration: none;
+	padding: 0.5rem 1rem;
+	letter-spacing: -0.00625rem;
+	cursor: pointer;
+}
+
+.btn {
+	@extend %button;
+}
+
+.btn--large {
+	line-height: 1.9;
+}
+
+.btn--medium {
+	line-height: 1.5;
+}
+
+.btn--primary {
+	background: #4d4d4d;
+	color: variables.$white-color;
+}
+
+.btn--default {
+	background: #d8d8d8;
+}
+
+.btn--full {
+	width: 100%;
+}
+
+.btn.disabled,
+.btn:disabled {
+	pointer-events: none;
+	opacity: 0.65;
+}

@@ -1,0 +1,76 @@
+//imports
+@use "../abstract/variables";
+@use "../abstract/mixins";
+
+//header styles
+.header {
+	@include mixins.flex($alignItems: center);
+	background: variables.$primary-color;
+	padding: 20px 0;
+	text-align: center;
+	box-shadow: 0 4px 4px -4px rgba(0, 0, 0, 0.12);
+
+	&__container {
+		width: 100%;
+	}
+
+	&__content {
+		@include mixins.flex($alignItems: center, $justifyContent: space-between);
+	}
+
+	&__logo {
+		line-height: 20px;
+	}
+
+	&__link {
+		@include mixins.font(
+			$family: variables.$libre,
+			$color: variables.$white-color
+		);
+	}
+	&__title {
+		display: block;
+		@include mixins.font($size: 28px);
+	}
+
+	&__meta {
+		@include mixins.font($family: variables.$inter, $size: 15px, $weight: 400);
+	}
+
+	&__cart {
+		width: 3.125rem;
+		height: 50px;
+		position: relative;
+		color: variables.$white-color;
+
+		&:hover {
+			color: variables.$secondary-color;
+		}
+
+		&__num {
+			position: absolute;
+			color: variables.$white-color;
+			width: 1.5625rem;
+			height: 1.5625rem;
+			@include mixins.rounded(100%);
+			background: variables.$secondary-color;
+			right: 0;
+			text-align: center;
+			line-height: 1.5625rem;
+			font-size: 0.6875rem;
+			font-weight: 700;
+		}
+	}
+
+	&__cart__icon {
+		width: 3.125rem;
+		height: 3.125rem;
+		cursor: pointer;
+
+		.icon-cart-button {
+			width: 3.125rem;
+			height: 3.125rem;
+			fill: currentColor;
+		}
+	}
+}

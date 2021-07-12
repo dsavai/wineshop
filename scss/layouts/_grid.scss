@@ -1,0 +1,25 @@
+@use '../../node_modules/flexbox-grid-mixins/dart-sass/flexbox-grid-mixins';
+@use "../abstract/mixins";
+@use "../abstract/variables";
+@use "../layouts/breakpoints";
+
+//grid gutter
+$default-grid-columns: 12;
+$default-grid-gutter: 25px;
+
+@include breakpoints.respond-to("medium") {
+	.grid-container {
+		@include flexbox-grid-mixins.grid($gutter: $default-grid-gutter);
+		flex-wrap: wrap;
+
+		@for $i from 1 through $default-grid-columns {
+			> .grid-col-#{$i} {
+				@include flexbox-grid-mixins.grid-col(
+					$col: $i,
+					$grid-columns: $default-grid-columns,
+					$gutter: $default-grid-gutter
+				);
+			}
+		}
+	}
+}

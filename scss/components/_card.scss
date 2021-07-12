@@ -1,0 +1,122 @@
+//imports
+@use "../abstract/variables";
+@use "../abstract/mixins";
+@use "../layouts/breakpoints";
+
+//styles
+.product {
+	border: 0.0625rem solid rgba(77, 85, 89, 0.12);
+	@include mixins.rounded($radius: 0.5rem);
+	padding: 1.25rem 0;
+	margin-top: 1.25rem;
+
+	@include breakpoints.respond-to("medium") {
+		padding: 1.25rem;
+		margin: 0;
+	}
+
+	&__block {
+		@include breakpoints.respond-to("medium") {
+			@include mixins.flex();
+		}
+	}
+
+	&__image {
+		display: flex;
+		max-width: 4.375rem;
+		margin: 0 auto;
+		flex-grow: 1;
+		justify-content: center;
+
+		@include breakpoints.respond-to("medium") {
+			margin: 1rem 1.5rem 1rem 0;
+		}
+
+		img {
+			min-width: 3.125rem;
+			max-width: 100%;
+			max-height: 9.375rem;
+			object-fit: contain;
+		}
+	}
+
+	&__content {
+		flex: 1;
+	}
+
+	&__details {
+		flex: 1;
+		padding: 1rem 1rem 1rem 0;
+		text-align: center;
+
+		@include breakpoints.respond-to("medium") {
+			text-align: inherit;
+		}
+	}
+
+	&__number {
+		@include mixins.font(
+			$family: variables.$libre,
+			$size: 3.125rem,
+			$color: variables.$gray-1-color
+		);
+	}
+
+	&__title {
+		@include mixins.font($family: variables.$libre, $size: 1.25rem);
+	}
+
+	&__action__details {
+		@include mixins.font($weight: 600);
+		@include mixins.flex($justifyContent: center);
+		@include breakpoints.respond-to("medium") {
+			margin-bottom: 1.25rem;
+			justify-content: inherit;
+		}
+	}
+
+	&__action__bottle {
+		margin-right: 1.25rem;
+		padding-right: 1.25rem;
+		border-right: 0.0625rem dotted #ccc;
+	}
+
+	&__action__name,
+	&__action__price,
+	&__action__quantity {
+		@include mixins.font($weight: 500);
+		line-height: 1.2;
+	}
+
+	&__action__name,
+	&__action__price {
+		@include mixins.font($size: 0.875rem);
+	}
+
+	&__action__quantity {
+		margin-top: 0.625rem;
+	}
+
+	.quantity-input {
+		width: 2.5rem;
+		height: 1.25rem;
+	}
+
+	.quantity-label {
+		font-size: 0.8125rem;
+	}
+
+	&__action__buttons {
+		margin-top: 0.625rem;
+		padding-top: 0.9375rem;
+		border-top: 0.0625rem solid rgba(0, 0, 0, 0.07);
+		@include mixins.flex($justifyContent: center, $alignItems: center);
+
+		@include breakpoints.respond-to("medium") {
+			display: block;
+		}
+		.btn:last-of-type {
+			margin-left: 0.625rem;
+		}
+	}
+}

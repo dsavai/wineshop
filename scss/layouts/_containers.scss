@@ -1,0 +1,21 @@
+//imports
+@use "../abstract/mixins";
+@use "../layouts/breakpoints";
+
+//global container
+.module-container {
+	margin: 0 auto;
+	padding-left: 1.25rem;
+	padding-right: 1.25rem;
+}
+
+.module-container--large {
+	max-width: 77.5rem;
+}
+
+.module__container---medium {
+	max-width: 52.5rem;
+}
+.module__container---small {
+	max-width: 39.375rem;
+}

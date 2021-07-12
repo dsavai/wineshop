@@ -1,0 +1,32 @@
+//imports
+@use "../abstract/variables";
+@use "../abstract/mixins";
+@use "../layouts/breakpoints";
+
+//margins
+.mt-60 {
+	margin-top: 20px;
+	@include breakpoints.respond-to("medium") {
+		margin-top: 60px;
+	}
+}
+
+//images
+
+//alerts
+.alert {
+	position: relative;
+	padding: 5px 8px;
+	margin-top: 8px;
+	border: 1px solid transparent;
+	@include mixins.rounded($radius: 0.25rem);
+
+	&.show-error {
+		display: block;
+	}
+}
+.alert-danger {
+	color: variables.$alert-danger;
+	background: variables.$danger-bg;
+	border-color: variables.$danger-border;
+}

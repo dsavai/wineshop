@@ -1,0 +1,39 @@
+//font styling
+@mixin font($family: null, $size: null, $color: null, $weight: null) {
+	font-family: $family;
+	font-size: $size;
+	color: $color;
+	font-weight: $weight;
+}
+
+//display felx
+@mixin flex(
+	$direction: null,
+	$alignItems: null,
+	$justifyContent: null,
+	$flexWrap: null
+) {
+	display: flex;
+	flex-direction: $direction;
+	align-items: $alignItems;
+	justify-content: $justifyContent;
+	flex-wrap: $flexWrap;
+}
+
+//radius
+@mixin rounded($radius: null) {
+	border-radius: $radius;
+}
+
+//modal
+@mixin overlay($bg: null) {
+	position: fixed;
+	top: 0;
+	bottom: 0;
+	right: 0;
+	left: 0;
+
+	background: {
+		color: $bg;
+	}
+}
